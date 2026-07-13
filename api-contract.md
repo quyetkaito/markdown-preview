@@ -101,6 +101,7 @@ GET /api/hcsn/{tenantID}/purchased-apps
       "OrganizationUnitName": "UBND xã",
       "BudgetCode": "BC_ROOT_01234",
       "AppCode": "MMO;Salagov;Bumas",
+      "PurchaseType": 1,
       "HadStandaloneData": false,
     },
     {
@@ -178,38 +179,16 @@ POST {vps.ConvertURL}?Rollback=false
   "TenantID": "guid",
   "ConnectionSource": "ioffice-conn-string",
   "ConnectionTarget": "silo-vps-conn-string",
-  "Delta": { }
+  "Delta": {
+    "Tenant": { "old-guid-1": "new-guid-1" },
+    "User": { "old-guid-3": "new-guid-3", "old-guid-4": "new-guid-4" },
+    "OrganizationUnit": { "old-guid-5": "old-guid-5" }
+  }
 }
 ```
-
-**Cấu trúc `Delta`:**
-```json
-"Delta": {
-  "IdMap": {
-    "old-guid-1": "new-guid-1",
-    "old-guid-2": "old-guid-2"
-  },
-  "Entities": [
-    {
-      "EntityType": "Tenant",
-      "Records": [
-        { "OldID": "old-guid-1", "NewID": "new-guid-1" }
-      ]
-    },
-    {
-      "EntityType": "User",
-      "Records": [
-        { "OldID": "old-guid-3", "NewID": "old-guid-3" }
-      ]
-    }
-  ]
-}
-```
-- VPS (Process, TMS) có DB riêng của nó, tách biệt với Platform Core. Khi Core MPL clone xong 1 tenant sang silo, VPS cũng phải tự backup/restore DB của nó cho tenant đó — nhưng data trong DB của VPS lại tham
-  chiếu tới TenantID, UserID, OrganizationUnitID... của Core. Nếu các ID này đổi (Pool mode) thì VPS phải biết ID nào đổi thành ID nào để replace lại trong data của chính nó.
-- `IdMap`: map phẳng OldID→NewID toàn bộ — VPS dùng để Replace nhanh
-- `Entities[].EntityType`: `Tenant` | `User` | `OrganizationUnit` | `JobPosition` | `JobTitle` — chỉ liệt kê entity **có thay đổi**
-- `NewID == OldID` nếu không conflict (giữ nguyên GUID)
+- VPS (Process, TMS) có DB riêng, tách biệt Platform Core, nhưng data tham chiếu TenantID/UserID/OrganizationUnitID... của Core. ID đổi (Pool mode) thì VPS cần biết ID nào → ID nào để replace trong data của chính nó
+- `Delta`: key là `EntityType` (`Tenant` | `User` | `OrganizationUnit` | `JobPosition` | `JobTitle`), value là dict `OldID → NewID` — **mỗi entity chứa nhiều cặp**, không giới hạn 1; chỉ liệt kê entity **có thay đổi**
+- `NewID == OldID` nếu không conflict (Silo mode luôn rơi vào trường hợp này — giữ nguyên GUID)
 
 **Response (async 202):**
 ```
