@@ -201,12 +201,13 @@ POST {core.CallbackURL}/api/hcsn/convert-callback
 }
 ```
 
-**Rollback:**
+**Rollback:** body giống rollback = false
 ```json
 POST {app.ConvertURL}?Rollback=true
 {
   "TenantID": "guid",
   "BudgetCode": "..."
+  ...
 }
 ```
 
