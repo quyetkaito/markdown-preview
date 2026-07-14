@@ -6,13 +6,13 @@
 
 ## Phần 1 — API Core HCSN cung cấp cho Tool Migrate (Input)
 
-### 1.1. `GET convert-candidates`
+### 1.1. `GET tenant-convert`
 
 Danh sách tenant HCSN đủ điều kiện convert.
 
 **Request:**
 ```
-GET /api/hcsn/convert-candidates?skip=0&take=50
+GET /api/hcsn/tenant-convert?skip=0&take=50
 ```
 
 **Response:**
@@ -100,17 +100,56 @@ GET /api/hcsn/{tenantID}/purchased-apps
       "OrganizationUnitID": "guid-ou-1",
       "OrganizationUnitName": "UBND xã",
       "BudgetCode": "BC_ROOT_01234",
-      "AppCode": "MMO;Salagov;Bumas",
-      "PurchaseType": 1,
-      "HadStandaloneData": false,
+      "Apps":
+      [
+        {
+           "AppCode": MMO,
+           "HadStandaloneData": false
+        },
+        {
+           "AppCode": Salagov,
+           "HadStandaloneData": false
+        }
+      ],
+      "Users": [
+        {
+           "UserID": "guid-1",
+           "FullName": "Nguyen Van A",
+           "IsFirstAdmin": true // có phải là QTHT đầu tiên không
+        },
+        {
+           "UserID": "guid-2",
+           "FullName": "Nguyen Van B",
+        }
+      ] 
     },
     {
       "OrganizationUnitID": "guid-ou-2",
       "OrganizationUnitName": "Phòng kinh tế",
-      "BudgetCode": "BC_PBCM_001",
-      "AppCode": "MMO;Salagov;Bumas;QLCB",
-      "HadStandaloneData": false,
-    }
+      "BudgetCode": "BC_ROOT_01235",
+      "Apps":
+      [
+        {
+           "AppCode": QLCB,
+           "HadStandaloneData": false
+        },
+        {
+           "AppCode": QLTSv2,
+           "HadStandaloneData": false
+        }
+      ],
+      "Users": [
+        {
+           "UserID": "guid-1",
+           "FullName": "Nguyen Van A",
+           "IsFirstAdmin": true // có phải là QTHT đầu tiên không
+        },
+        {
+           "UserID": "guid-2",
+           "FullName": "Nguyen Van B",
+        }
+      ] 
+    },
   ]
 }
 ```
@@ -139,7 +178,7 @@ IGOV có SubTenant (PBCM con dạng OU):
   "TenantID": "guid",
   "BudgetCode": "...",
   "SubTenants": [
-    { "SubTenantID": "guid-ou-con", "BudgetCode": "..." }
+    { "SubTenantID": "guid-ou-con", "BudgetCode": "...", "ExtraData": {} }
   ],
   "ExtraData": {}
 }
