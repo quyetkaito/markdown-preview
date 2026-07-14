@@ -43,6 +43,8 @@ GET /api/hcsn/tenant-convert?skip=0&take=50
 ```
 GET /api/hcsn/find?TenantID={guid}&Type=User
 GET /api/hcsn/find?TenantID={guid}&Type=OrganizationUnit
+GET /api/hcsn/find?TenantID={guid}&Type=JobPosition
+GET /api/hcsn/find?TenantID={guid}&Type=JobTitle
 ```
 
 **Response:**
