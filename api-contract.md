@@ -291,7 +291,7 @@ POST {vps.ConvertURL}?Rollback=false
 
 | API | Chiều | Bước dùng | Trạng thái |
 |---|---|---|---|
-| `convert-candidates` | HCSN → Tool | Bước 0 (input UI) | [BLOCK] quá hạn |
+| `tenant-convert` | HCSN → Tool | Bước 0 (input UI) | [BLOCK] quá hạn |
 | `find?Type=...` | HCSN → Tool | Bước 1 (transform RAM) | [BLOCK] quá hạn |
 | `jobposition/jobtitle` | HCSN → Tool | Bước 1 (transform RAM) | [BLOCK] deadline 13/07 |
 | `purchased-apps` | HCSN → Tool | Bước 2 (hcsn_getting_state) | [BLOCK] chưa cung cấp |
