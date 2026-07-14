@@ -104,11 +104,11 @@ GET /api/hcsn/{tenantID}/purchased-apps
       "Apps":
       [
         {
-           "AppCode": MMO,
+           "AppCode": "MMO",
            "HadStandaloneData": false
         },
         {
-           "AppCode": Salagov,
+           "AppCode": "Salagov",
            "HadStandaloneData": false
         }
       ],
@@ -131,11 +131,11 @@ GET /api/hcsn/{tenantID}/purchased-apps
       "Apps":
       [
         {
-           "AppCode": QLCB,
+           "AppCode": "QLCB",
            "HadStandaloneData": false
         },
         {
-           "AppCode": QLTSv2,
+           "AppCode": "QLTSv2",
            "HadStandaloneData": false
         }
       ],
