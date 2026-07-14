@@ -2,6 +2,7 @@
 
 > File này gom toàn bộ contract API (body, param, response mẫu) liên quan pipeline convert.
 
+Các request cần truyền x-client-id vào header
 ---
 
 ## Phần 1 — API Core HCSN cung cấp cho Tool Migrate (Input)
@@ -216,8 +217,6 @@ POST {app.ConvertURL}?Rollback=true
 POST {vps.ConvertURL}?Rollback=false
 {
   "TenantID": "guid",
-  "ConnectionSource": "ioffice-conn-string",
-  "ConnectionTarget": "silo-vps-conn-string",
   "Delta": {
     "Tenant": { "old-guid-1": "new-guid-1" },
     "User": { "old-guid-3": "new-guid-3", "old-guid-4": "new-guid-4" },
@@ -257,7 +256,14 @@ POST {core.CallbackURL}/api/hcsn/convert-callback
 **Rollback:**
 ```json
 POST {vps.ConvertURL}?Rollback=true
-{ "TenantID": "guid" }
+{
+  "TenantID": "guid",
+  "Delta": {
+    "Tenant": { "old-guid-1": "new-guid-1" },
+    "User": { "old-guid-3": "new-guid-3", "old-guid-4": "new-guid-4" },
+    "OrganizationUnit": { "old-guid-5": "old-guid-5" }
+  }
+}
 ```
 
 ---
@@ -267,7 +273,14 @@ POST {vps.ConvertURL}?Rollback=true
 **Request:**
 ```json
 POST {vps.ConvertURL}?Rollback=false
-{ "TenantID": "guid" }
+{
+  "TenantID": "guid",
+  "Delta": {
+    "Tenant": { "old-guid-1": "new-guid-1" },
+    "User": { "old-guid-3": "new-guid-3", "old-guid-4": "new-guid-4" },
+    "OrganizationUnit": { "old-guid-5": "old-guid-5" }
+  }
+}
 ```
 
 **Response:** `200 OK { "Success": true }` — không cần backup/restore/callback ShardConnection.
