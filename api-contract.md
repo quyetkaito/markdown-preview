@@ -240,10 +240,27 @@ POST {vps.ConvertURL}?Rollback=false
 **Poll trạng thái:**
 ```
 GET {vps.ConvertURL}/api/convert/status/{jobID}
-→ { Status, Progress, Logs }
+đang xử lý
+{ "Status": "Processing", "Progress": 45, "Logs": ["..."] }
 ```
 
-**Callback khi xong:**
+Khi xong (`Status` = trạng thái cuối) — **PHẢI trả kèm `ShardConnection` ngay trong response poll này**,
+```json
+{
+  "Status": "Done",
+  "Progress": 100,
+  "Logs": ["..."],
+  "ShardConnection": "Server=silo-vps-xxx;Database=amis_vps_silo_xxx;",
+  "Error": null
+}
+```
+
+Khi fail:
+```json
+{ "Status": "Failed", "Progress": 100, "Logs": ["..."], "ShardConnection": null, "Error": "lý do lỗi" }
+```
+
+**Callback: app tự gọi về báo "đã xong"**
 ```json
 POST {core.CallbackURL}/api/hcsn/convert-callback
 {
@@ -301,7 +318,7 @@ POST {vps.ConvertURL}?Rollback=false
 | Trigger App CM | Tool → App CM | Bước 3 | [BLOCK] chờ App CM |
 | Trigger VPS (AMISFW) | Tool → VPS | Bước 3 | [BLOCK] chờ VPS |
 | Trigger VPS (non-AMISFW) | Tool → VPS | Bước 3 | [BLOCK] chờ VPS |
-| Callback convert-callback | App/VPS → Core | Bước 3 (async) | [BLOCK] chờ tdlam |
+| Callback convert-callback | App/VPS → Core | Bước 3 (async) |  |
 
 
 
