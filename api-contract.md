@@ -248,7 +248,7 @@ GET {vps.ConvertURL}/api/convert/status/{jobID}
 POST {core.CallbackURL}/api/hcsn/convert-callback
 {
   "TenantID": "guid",
-  "AppCode": "VPSProcess",
+  "AppCode": "AMISProcess",
   "Success": true,
   "ConvertTime": "2026-07-16T10:05:00Z",
   "ShardConnection": "Server=silo-vps-xxx;Database=amis_vps_silo_xxx;",
