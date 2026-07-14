@@ -164,10 +164,8 @@ GET /api/hcsn/{tenantID}/purchased-apps
 ### 2.1. Trigger App chuyên môn (App CM)
 
 **Request:**
-```
-POST {app.ConvertURL}?Rollback=false
-```
 ```json
+POST {app.ConvertURL}?Rollback=false
 {
   "TenantID": "guid",
   "BudgetCode": "...",
@@ -177,6 +175,7 @@ POST {app.ConvertURL}?Rollback=false
 
 IGOV có SubTenant (PBCM con dạng OU):
 ```json
+POST {app.ConvertURL}?Rollback=false
 {
   "TenantID": "guid",
   "BudgetCode": "...",
@@ -238,10 +237,13 @@ POST {vps.ConvertURL}?Rollback=false
 ```
 
 **Poll trạng thái:**
-```
+```json
 GET {vps.ConvertURL}/api/convert/status/{jobID}
-đang xử lý
-{ "Status": "Processing", "Progress": 45, "Logs": ["..."] }
+{
+  "Status": "Processing",
+  "Progress": 45,
+  "Logs": ["..."]
+}
 ```
 
 Khi xong (`Status` = trạng thái cuối) — **PHẢI trả kèm `ShardConnection` ngay trong response poll này**,
@@ -260,7 +262,7 @@ Khi fail:
 { "Status": "Failed", "Progress": 100, "Logs": ["..."], "ShardConnection": null, "Error": "lý do lỗi" }
 ```
 
-**Callback: app tự gọi về báo "đã xong"**
+**Callback: app tự gọi về {core.CallbackURL} báo "đã xong"**
 ```json
 POST {core.CallbackURL}/api/hcsn/convert-callback
 {
