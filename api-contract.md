@@ -217,6 +217,7 @@ POST {app.ConvertURL}?Rollback=true
 **Request:**
 ```json
 POST {vps.ConvertURL}?Rollback=false
+REQUEST BODY
 {
   "TenantID": "guid",
   "Delta": {
@@ -229,6 +230,18 @@ POST {vps.ConvertURL}?Rollback=false
 - VPS (Process, TMS) có DB riêng, tách biệt Platform Core, nhưng data tham chiếu TenantID/UserID/OrganizationUnitID... của Core. ID đổi (Pool mode) thì VPS cần biết ID nào → ID nào để replace trong data của chính nó
 - `Delta`: key là `EntityType` (`Tenant` | `User` | `OrganizationUnit` | `JobPosition` | `JobTitle`), value là dict `OldID → NewID` — **mỗi entity chứa nhiều cặp**, không giới hạn 1; chỉ liệt kê entity **có thay đổi**
 - `NewID == OldID` nếu không conflict (Silo mode luôn rơi vào trường hợp này — giữ nguyên GUID)
+
+**Response (200): nếu nhanh <60s**
+```
+{
+  "TenantID": "guid",
+  "AppCode": "AMISProcess",
+  "Success": true,
+  "ConvertTime": "2026-07-16T10:05:00Z",
+  "ShardConnection": "Server=silo-vps-xxx;Database=amis_vps_silo_xxx;",
+  "Error": null
+}
+```
 
 **Response (async 202):**
 ```
