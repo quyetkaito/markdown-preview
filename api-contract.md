@@ -232,12 +232,11 @@ REQUEST BODY
 - `NewID == OldID` nếu không conflict (Silo mode luôn rơi vào trường hợp này — giữ nguyên GUID)
 
 **Response (200): nếu nhanh <60s**
-```
+```json
 {
-  "TenantID": "guid",
-  "AppCode": "AMISProcess",
-  "Success": true,
-  "ConvertTime": "2026-07-16T10:05:00Z",
+  "Status": "Done",
+  "Progress": 100,
+  "Logs": ["..."],
   "ShardConnection": "Server=silo-vps-xxx;Database=amis_vps_silo_xxx;",
   "Error": null
 }
