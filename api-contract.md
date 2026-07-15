@@ -27,7 +27,7 @@ GET /api/hcsn/tenant-convert?skip=0&take=50
       "TenantName": "UBND xã A",
       "HCSNID": "guid-hcsn",
       "IOfficeID": "guid-ioffice",
-      "BusinessType": "Comune",
+      "BusinessType": "IGOV",
       "IsComune": true,
       "ExtraData": {}
     }
