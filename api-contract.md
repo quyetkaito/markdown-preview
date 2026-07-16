@@ -8,8 +8,8 @@ core.CallBackUrl
 |Môi trường | Link |
 |---|---|
 |TestLocal | https://igovapp.misa.local/APIS/ManagementAPI/api/hcsn/convert-callback https://ihosapp.misa.local/APIS/ManagementAPI/api/hcsn/convert-callback |
-|TestOnline| https://testigovapp.misa.vn/APIS/ManagementAPI/api/hcsn/convert-callback https://testihosapp.misa/APIS/ManagementAPI/api/hcsn/convert-callback|
-|Production | https://igovapp.misa.vn/APIS/ManagementAPI/api/hcsn/convert-callback https://ihosapp.misa/APIS/ManagementAPI/api/hcsn/convert-callback |
+|TestOnline| https://testigovapp.misa.vn/APIS/ManagementAPI/api/hcsn/convert-callback https://testihosapp.misa.vn/APIS/ManagementAPI/api/hcsn/convert-callback|
+|Production | https://igovapp.misa.vn/APIS/ManagementAPI/api/hcsn/convert-callback https://ihosapp.misa.vn/APIS/ManagementAPI/api/hcsn/convert-callback |
 ---
 
 https://testigovapp.misa.vn/APIS/ManagementAPI/api/hcsn/convert-callback https://testihosapp.misa/APIS/ManagementAPI/api/hcsn/convert-callback
