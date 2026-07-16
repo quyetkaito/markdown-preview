@@ -7,14 +7,35 @@ Các request cần truyền x-client-id vào header
 
 ## Phần 1 — API Core HCSN cung cấp cho Tool Migrate (Input)
 
-### 1.1. `GET tenant-convert`
+### 1.1. `POST tenant-convert`
 
 Danh sách tenant HCSN đủ điều kiện convert.
 
 **Request:**
+```json
+POST /api/hcsn/tenant-convert
+Content-Type: application/json
+
+{
+  "Skip": 0,
+  "Take": 50,
+  "TextSearch": "UBND xã A", //hỗ trợ tìm theo tên đơn vị/budgetcode
+  "Filter": {
+    "Pools": ["IGOV"], //IHOS, IGOV filter
+    "BusinessTypes": ["Comune"], //loại xã, trường, bệnh viện
+    "BudgetCodes": ["BC_ROOT_01234", "BC_ROOT_01235"] //filter theo budgetcode
+  }
+}
 ```
-GET /api/hcsn/tenant-convert?skip=0&take=50
-```
+| Field | Kiểu | Bắt buộc | Mô tả |
+|---|---|---|---|
+| `Skip` | int | có | Phân trang — bỏ qua N dòng đầu |
+| `Take` | int | có | Phân trang — lấy tối đa N dòng |
+| `TextSearch` | string | không | Search server-side theo `BudgetCode` OR `TenantName` (LIKE/contains, không phân biệt hoa thường) |
+| `Filter` | object | không | Object chứa các điều kiện lọc dạng danh sách (key cố định, xem bảng dưới). Bỏ qua field hoặc để `null`/rỗng = không lọc theo field đó. Tất cả field trong `Filter` áp dụng AND với nhau và với `TextSearch` |
+| `Filter.Pools` | string[] | không | Lọc theo pool nguồn, multi-select — `IGOV` \| `IHOS` |
+| `Filter.BusinessTypes` | string[] | không | Lọc theo loại đơn vị, multi-select — `Comune` \| `Hospital` \| `School` \| `Other` |
+| `Filter.BudgetCodes` | string[] | không | Lọc chính xác theo danh sách BudgetCode (`IN (...)`) — dùng khi admin mong muốn convert khách hàng chỉ định|
 
 **Response:**
 ```json
