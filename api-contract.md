@@ -2,7 +2,12 @@
 
 > File này gom toàn bộ contract API (body, param, response mẫu) liên quan pipeline convert.
 
-Các request cần truyền x-client-id vào header
+**Các request cần truyền x-client-id vào header để core xác thực app**
+
+core.CallBackUrl
+|Môi trường | Link |
+|---|---|
+|TestLocal | https://apps.amispdc.misa.local/APIS/ManagementAPI/api/hcsn/convert-callback |
 ---
 
 ## Phần 1 — API Core HCSN cung cấp cho Tool Migrate (Input)
