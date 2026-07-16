@@ -41,6 +41,7 @@ Content-Type: application/json
     {
       "TenantID": "guid",
       "BudgetCode": "BC_ROOT_01234",
+      "TenantCode": "tenant-code",
       "TenantName": "UBND xã A",
       "HCSNID": "guid-hcsn",
       "IOfficeID": "guid-ioffice",
