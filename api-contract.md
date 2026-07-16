@@ -2,7 +2,7 @@
 
 > File này gom toàn bộ contract API (body, param, response mẫu) liên quan pipeline convert.
 
-**Các request cần truyền x-client-id vào header để core xác thực app**
+**Các request cần truyền x-clientid vào header để core xác thực app**
 
 core.CallBackUrl
 |Môi trường | Link |
