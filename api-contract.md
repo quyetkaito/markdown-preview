@@ -8,6 +8,8 @@ core.CallBackUrl
 |Môi trường | Link |
 |---|---|
 |TestLocal | https://apps.amispdc.misa.local/APIS/ManagementAPI/api/hcsn/convert-callback |
+|TestOnline| {domain-test-online}/APIS/ManagementAPI/api/hcsn/convert-callback |
+|Production | {domain-production}/APIS/ManagementAPI/api/hcsn/convert-callback |
 ---
 
 ## Phần 1 — API Core HCSN cung cấp cho Tool Migrate (Input)
