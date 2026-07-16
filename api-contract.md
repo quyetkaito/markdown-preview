@@ -12,8 +12,6 @@ core.CallBackUrl
 |Production | https://igovapp.misa.vn/APIS/ManagementAPI/api/hcsn/convert-callback https://ihosapp.misa.vn/APIS/ManagementAPI/api/hcsn/convert-callback |
 ---
 
-https://testigovapp.misa.vn/APIS/ManagementAPI/api/hcsn/convert-callback https://testihosapp.misa/APIS/ManagementAPI/api/hcsn/convert-callback
-
 ## Phần 1 — API Core HCSN cung cấp cho Tool Migrate (Input)
 
 ### 1.1. `POST tenant-convert`
