@@ -7,7 +7,7 @@
 core.CallBackUrl
 |Môi trường | Link |
 |---|---|
-|TestLocal | https://apps.amispdc.misa.local/APIS/ManagementAPI/api/hcsn/convert-callback |
+|TestLocal | https://igovapp.misa.local/APIS/ManagementAPI/api/hcsn/convert-callback https://ihosapp.misa.local/APIS/ManagementAPI/api/hcsn/convert-callback |
 |TestOnline| {domain-test-online}/APIS/ManagementAPI/api/hcsn/convert-callback |
 |Production | {domain-production}/APIS/ManagementAPI/api/hcsn/convert-callback |
 ---
