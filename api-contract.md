@@ -8,8 +8,8 @@ core.CallBackUrl
 |Môi trường | Link |
 |---|---|
 |TestLocal | https://igovapp.misa.local/APIS/ManagementAPI/api/hcsn/convert-callback https://ihosapp.misa.local/APIS/ManagementAPI/api/hcsn/convert-callback |
-|TestOnline| https://testigovapp.misa.vn/APIS/ManagementAPI/api/hcsn/convert-callback https://testihosapp.misa.vn/APIS/ManagementAPI/api/hcsn/convert-callback|
-|Production | https://igovapp.misa.vn/APIS/ManagementAPI/api/hcsn/convert-callback https://ihosapp.misa.vn/APIS/ManagementAPI/api/hcsn/convert-callback |
+|TestOnline| https://testigovapp.misa.vn.local/APIS/ManagementAPI/api/hcsn/convert-callback https://testihosapp.misa.vn.local/APIS/ManagementAPI/api/hcsn/convert-callback|
+|Production | https://igovapp.misa.vn.local/APIS/ManagementAPI/api/hcsn/convert-callback https://ihosapp.misa.vn.local/APIS/ManagementAPI/api/hcsn/convert-callback |
 ---
 
 ## Phần 1 — API Core HCSN cung cấp cho Tool Migrate (Input)
