@@ -316,6 +316,7 @@ POST {core.CallbackURL}/api/hcsn/convert-callback
   "Success": true,
   "ConvertTime": "2026-07-16T10:05:00Z",
   "ShardConnection": "Server=silo-vps-xxx;Database=amis_vps_silo_xxx;",
+  "MongoShardConnection": "mongo-shard-connection",
   "Error": null
 }
 ```
