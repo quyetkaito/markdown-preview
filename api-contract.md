@@ -192,6 +192,8 @@ GET /api/hcsn/{tenantID}/purchased-apps
 POST {app.ConvertURL}?Rollback=false
 {
   "TenantID": "guid",
+  "TenantCode": "tenant-code",
+  "TenantName": "tenant-name",
   "BudgetCode": "...",
   "BusinessType": 2, //2 - IGOV,3 - IHOS
   "ExtraData": {}
@@ -203,6 +205,8 @@ IGOV có SubTenant (PBCM con dạng OU):
 POST {app.ConvertURL}?Rollback=false
 {
   "TenantID": "guid",
+  "TenantCode": "tenant-code",
+  "TenantName": "tenant-name",
   "BudgetCode": "...",
   "BusinessType": 2, //2 - IGOV,3 - IHOS
   "SubTenants": [
@@ -246,6 +250,8 @@ POST {vps.ConvertURL}?Rollback=false
 REQUEST BODY
 {
   "TenantID": "guid",
+  "TenantCode": "tenant-code",
+  "TenantName": "tenant-name",
   "BusinessType": 2, //2 - IGOV,3 - IHOS
   "Delta": {
     "Tenant": { "old-guid-1": "new-guid-1" },
