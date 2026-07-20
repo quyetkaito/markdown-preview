@@ -193,6 +193,7 @@ POST {app.ConvertURL}?Rollback=false
 {
   "TenantID": "guid",
   "BudgetCode": "...",
+  "BusinessType": 2, //2 - IGOV,3 - IHOS
   "ExtraData": {}
 }
 ```
@@ -203,6 +204,7 @@ POST {app.ConvertURL}?Rollback=false
 {
   "TenantID": "guid",
   "BudgetCode": "...",
+  "BusinessType": 2, //2 - IGOV,3 - IHOS
   "SubTenants": [
     { "SubTenantID": "guid-ou-con", "BudgetCode": "...", "ExtraData": {} }
   ],
@@ -244,6 +246,7 @@ POST {vps.ConvertURL}?Rollback=false
 REQUEST BODY
 {
   "TenantID": "guid",
+  "BusinessType": 2, //2 - IGOV,3 - IHOS
   "Delta": {
     "Tenant": { "old-guid-1": "new-guid-1" },
     "User": { "old-guid-3": "new-guid-3", "old-guid-4": "new-guid-4" },
@@ -333,6 +336,7 @@ POST {vps.ConvertURL}?Rollback=true
 POST {vps.ConvertURL}?Rollback=false
 {
   "TenantID": "guid",
+  "BusinessType": 2, //2 - IGOV,3 - IHOS
   "Delta": {
     "Tenant": { "old-guid-1": "new-guid-1" },
     "User": { "old-guid-3": "new-guid-3", "old-guid-4": "new-guid-4" },
