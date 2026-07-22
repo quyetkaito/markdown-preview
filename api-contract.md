@@ -262,49 +262,32 @@ REQUEST BODY
 ```
 - VPS (Process, TMS) có DB riêng, tách biệt Platform Core, nhưng data tham chiếu TenantID/UserID/OrganizationUnitID... của Core. ID đổi (Pool mode) thì VPS cần biết ID nào → ID nào để replace trong data của chính nó
 - `Delta`: key là `EntityType` (`Tenant` | `User` | `OrganizationUnit` | `JobPosition` | `JobTitle`), value là dict `OldID → NewID` — **mỗi entity chứa nhiều cặp**, không giới hạn 1; chỉ liệt kê entity **có thay đổi**
-- `NewID == OldID` nếu không conflict (Silo mode luôn rơi vào trường hợp này — giữ nguyên GUID)
+
+| Giá trị Status | Mô tả |
+|---------|-------|
+| `Pending` | Chưa xử lý gì — trạng thái khởi tạo trước khi pipeline chạy. |
+| `Sent` | Đã gửi request trigger tới App CM/VPS đang chờ phản hồi. |
+| `Received` | Đã nhận phản hồi ban đầu từ app.(trong trường hợp VPS convert lâu thì trả về trạng thái là đã nhận trigger trước, sau đó gọi callback để core update lại trạng thái) |
+| `Migrated` | App đã convert/migrate thành công — trạng thái cuối cùng mong muốn cho mỗi cặp (`IOfficeID`, `AppCode`). |
+| `PartialFailed` | App trigger thất bại (lỗi HTTP, exception hoặc app tự báo lỗi) — `LastError` chứa thông tin chi tiết. |
+| `Rolledback` | Đã rollback thành công — dùng cho luồng `RunAsync(rollback: true)`, không tác động đến dữ liệu `IOffice` gốc. |
+| `Timeout` | Quá thời gian chờ |
 
 **Response (200): nếu nhanh <60s**
 ```json
 {
-  "Status": "Done",
-  "Progress": 100,
+  "Status": "Migrated",
   "Logs": ["..."],
   "ShardConnection": "Server=silo-vps-xxx;Database=amis_vps_silo_xxx;",
   "Error": null
 }
 ```
-
-**Response (async 202):**
-```
-202 Accepted
-{ "jobID": "job-xxx" }
-```
-
-**Poll trạng thái:**
-```json
-GET {vps.ConvertURL}/api/convert/status/{jobID}
-{
-  "Status": "Processing",
-  "Progress": 45,
-  "Logs": ["..."]
-}
-```
-
-Khi xong (`Status` = trạng thái cuối) — **PHẢI trả kèm `ShardConnection` ngay trong response poll này**,
+**Response (200): nếu chậm >60s**
 ```json
 {
-  "Status": "Done",
-  "Progress": 100,
-  "Logs": ["..."],
-  "ShardConnection": "Server=silo-vps-xxx;Database=amis_vps_silo_xxx;",
+  "Status": "Received", //trả về core là đã nhận trigger, đang xử lý
   "Error": null
 }
-```
-
-Khi fail:
-```json
-{ "Status": "Failed", "Progress": 100, "Logs": ["..."], "ShardConnection": null, "Error": "lý do lỗi" }
 ```
 
 **Callback: app tự gọi về {core.CallbackURL} báo "đã xong"**
