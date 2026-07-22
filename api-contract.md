@@ -191,7 +191,7 @@ GET /api/hcsn/{tenantID}/purchased-apps
 ```json
 POST {app.ConvertURL}?Rollback=false
 {
-  "TenantID": "guid",
+  "TenantID": "guid", // tenantID mới  - HCSNID
   "TenantCode": "tenant-code",
   "TenantName": "tenant-name",
   "BudgetCode": "...",
@@ -204,7 +204,7 @@ IGOV có SubTenant (PBCM con dạng OU):
 ```json
 POST {app.ConvertURL}?Rollback=false
 {
-  "TenantID": "guid",
+  "TenantID": "guid", // tenantID mới  - HCSNID
   "TenantCode": "tenant-code",
   "TenantName": "tenant-name",
   "BudgetCode": "...",
@@ -222,7 +222,7 @@ POST {app.ConvertURL}?Rollback=false
 ```json
 POST {core.CallbackURL}/api/hcsn/convert-callback
 {
-  "TenantID": "guid",
+  "TenantID": "guid", // tenantID mới  - HCSNID
   "AppCode": "QLCB",
   "Success": true,
   "ConvertTime": "2026-07-16T10:00:00Z",
@@ -249,7 +249,7 @@ POST {app.ConvertURL}?Rollback=true
 POST {vps.ConvertURL}?Rollback=false
 REQUEST BODY
 {
-  "TenantID": "guid",
+  "TenantID": "guid", // tenantID mới  - HCSNID
   "TenantCode": "tenant-code",
   "TenantName": "tenant-name",
   "BusinessType": 2, //2 - IGOV,3 - IHOS
@@ -311,7 +311,7 @@ Khi fail:
 ```json
 POST {core.CallbackURL}/api/hcsn/convert-callback
 {
-  "TenantID": "guid",
+  "TenantID": "guid", // tenantID mới  - HCSNID
   "AppCode": "AMISProcess",
   "Success": true,
   "ConvertTime": "2026-07-16T10:05:00Z",
@@ -325,7 +325,10 @@ POST {core.CallbackURL}/api/hcsn/convert-callback
 ```json
 POST {vps.ConvertURL}?Rollback=true
 {
-  "TenantID": "guid",
+  "TenantID": "guid", // tenantID mới  - HCSNID
+  "TenantCode": "tenant-code",
+  "TenantName": "tenant-name",
+  "BusinessType": 2, //2 - IGOV,3 - IHOS
   "Delta": {
     "Tenant": { "old-guid-1": "new-guid-1" },
     "User": { "old-guid-3": "new-guid-3", "old-guid-4": "new-guid-4" },
@@ -342,7 +345,9 @@ POST {vps.ConvertURL}?Rollback=true
 ```json
 POST {vps.ConvertURL}?Rollback=false
 {
-  "TenantID": "guid",
+  "TenantID": "guid", // tenantID mới  - HCSNID
+  "TenantCode": "tenant-code",
+  "TenantName": "tenant-name",
   "BusinessType": 2, //2 - IGOV,3 - IHOS
   "Delta": {
     "Tenant": { "old-guid-1": "new-guid-1" },
