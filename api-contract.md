@@ -102,7 +102,7 @@ GET /api/hcsn/{tenantID}/jobposition-jobtitle
     { "JobPositionID": "guid-jp-1", "IOfficeID": "guid-old-jp-1", "JobPositionCode": "code-1", "JobPositionName": "Chủ tịch" }
   ],
   "JobTitles": [
-    { "JobTitleID": "guid-jt-1", "IOfficeID": "guid-old-jt-1", "JobPositionCode": "code-2", "JobTitleName": "Chuyên viên" }
+    { "JobTitleID": "guid-jt-1", "IOfficeID": "guid-old-jt-1", "JobTitleCode": "code-2", "JobTitleName": "Chuyên viên" }
   ]
 }
 ```
