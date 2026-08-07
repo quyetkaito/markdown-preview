@@ -29,6 +29,5 @@
     "PhoneNumber": "Số điện thoại",
     "OrganizationEmail": "Email của tổ chức",
     "Website": "Địa chỉ website",
-    "FaxNumber": "Số fax",
-    "State": "Trạng thái (số nguyên)",
+    "FaxNumber": "Số fax"
 }
