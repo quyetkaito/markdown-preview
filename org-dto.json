@@ -15,7 +15,6 @@
     "IsDeleted": "Đã bị xóa chưa (boolean)",
     "ShortCutName": "Tên viết tắt",
     "BedCount": "Số giường (dùng cho bệnh viện/cơ sở y tế)",
-    "BedCountTotal": "Tổng số giường",
     "BudgetCode": "Mã ngân sách",
     "TaxCode": "Mã số thuế",
     "EstablishedDate": "Ngày thành lập",
