@@ -27,6 +27,8 @@
   "JobPositionName": "Tên chức danh",
   "JobTitleID": "Mã chức vụ",
   "JobTitleName": "Tên chức vụ",
+  "StaffTypeCode": "Mã loại cán bộ",
+  "StaffTypeName": "Tên loại cán bộ",
   "ReportToID": "Mã người quản lý trực tiếp",
   "ReportToName": "Tên người quản lý trực tiếp",
   "HireDate": "Ngày vào đơn vị",
