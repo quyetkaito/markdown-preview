@@ -23,7 +23,5 @@
   "ReportToID": "Mã người quản lý trực tiếp",
   "ReportToName": "Tên người quản lý trực tiếp",
   "HireDate": "Ngày vào đơn vị",
-  "ReceiveDate": "Ngày chính thức",
-  "TerminationDate": "Ngày nghỉ việc",
   "Status": "Trạng thái(3:đang hoạt động, 4:ngừng kích hoạt)"
 }
