@@ -32,6 +32,6 @@
   "HireDate": "Ngày vào đơn vị",
   "ReceiveDate": "Ngày chính thức",
   "TerminationDate": "Ngày nghỉ việc",
-  "State": "Trạng thái(1: chưa kích hoạt, 2: chờ xác nhận, 3:đang hoạt động, 4:ngừng kích hoạt, 5:đã xóa)"
+  "Status": "Trạng thái(1: chưa kích hoạt, 2: chờ xác nhận, 3:đang hoạt động, 4:ngừng kích hoạt, 5:đã xóa)"
   "TenantID": "TenantID",
 }
