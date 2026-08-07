@@ -14,13 +14,9 @@
   "OrganizationUnitName": "Tên phòng ban",
   "EmployeeCode": "Mã CB nhân viên",
   "EmployeeStatus": "Trạng thái nhân viên(1: đang làm việc, 2:đã nghỉ việc, 3:ngừng theo dõi)",
-  "Avatar": "Avatar file name: ví dụ: 82e0b79d-2606-43fd-8c19-0559296ac102.jpeg",
-  "AvatarColor": "Màu sắc đại diện cho ảnh. Ví dụ: #4386E0",
-  "MISAID": "Mã định danh MISA",
   "Birthday": "Ngày sinh",
   "Gender": "Giới tính(0 nữ, 1 nam)",
   "Address": "Địa chỉ",
-  "IsAdmin": "Có phải là quản trị viên hay không",
   "IsStaff": "Có phải là nhân viên hay không",
   "IsUser": "Có phải là người dùng hay không",
   "JobPositionID": "Mã chức danh",
@@ -35,5 +31,4 @@
   "ReceiveDate": "Ngày chính thức",
   "TerminationDate": "Ngày nghỉ việc",
   "Status": "Trạng thái(1: chưa kích hoạt, 2: chờ xác nhận, 3:đang hoạt động, 4:ngừng kích hoạt, 5:đã xóa)"
-  "TenantID": "TenantID",
 }
