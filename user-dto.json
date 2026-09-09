@@ -1,6 +1,7 @@
 {
   "UserID": "Mã định danh duy nhất của người dùng",
   "FullName": "Tên đầy đủ",
+  "MISAID": "MISAID",
   "MISAIDEmail": "Email liên kết với tài khoản MISA",
   "MISAIDMobile": "Số điện thoại liên kết với tài khoản MISA",
   "Email": "Email liên hệ",
