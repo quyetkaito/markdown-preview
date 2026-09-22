@@ -29,7 +29,7 @@ Content-Type: application/json
   "TextSearch": "UBND xã A", //hỗ trợ tìm theo tên đơn vị/budgetcode
   "Filter": {
     "BudgetCodes": ["BC_ROOT_01234", "BC_ROOT_01235"], //filter theo budgetcode
-    "Status": ["0", "1"], //trạng thái của tenant: 0-chưa convert, 1-đã convert, không truyền: lấy tất cả trạng thái
+    "Status": [0,1], //trạng thái của tenant: 0-chưa convert, 1-đã convert, không truyền: lấy tất cả trạng thái
   }
 }
 ```
