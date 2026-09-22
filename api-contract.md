@@ -54,6 +54,7 @@ Content-Type: application/json
       "HCSNID": "guid-hcsn",
       "IOfficeID": "guid-ioffice",
       "IsComune": true,
+      "Status": 1, //0-chưa convert, 1-đã convert
       "ExtraData": {}
     }
   ]
